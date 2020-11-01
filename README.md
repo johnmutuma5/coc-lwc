@@ -2,7 +2,7 @@
 
 ## What can it do
 
-- Language intellisense using Salesforce Apex Language server
+- Language IntelliSense using Lightning Web Components language server.
   - Go To Definition
   - Go To References
   - Code auto-completion
@@ -12,7 +12,7 @@
 
 ## Installation
 
-Install by running this command in vim/NeoVim `CocInstall coc-lwc`.
+Install by running this command in vim/NeoVim `:CocInstall coc-lwc`.
 Enjoy.
 
 
