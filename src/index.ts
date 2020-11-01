@@ -24,7 +24,7 @@ function startLwcServer(context: ExtensionContext) {
     )
   );
 
-  !(workspace.workspaceFolders.length) && workspace.workspaceFolders.push(workspace.workspaceFolder);
+  !(workspace.workspaceFolders?.length) && workspace.workspaceFolders.push(workspace.workspaceFolder);
 
   const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
   const serverOptions: ServerOptions = {
