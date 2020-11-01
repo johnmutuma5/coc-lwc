@@ -1,0 +1,31 @@
+{
+  "name": "coc-lwc",
+  "version": "1.0.0",
+  "description": "coc.nvim wrapper for Lightning Web Components framework LSP client",
+  "main": "out/src/index.js",
+  "scripts": {
+    "compile": "tsc -b tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "coc": ">= 0.0.70"
+  },
+  "keywords": [
+    "coc.nvim",
+    "lightning",
+    "web",
+    "components",
+    "lwc"
+  ],
+  "author": "John Mutuma",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@salesforce/lwc-language-server": "^3.0.11",
+    "coc": "^1.0.0",
+    "coc.nvim": "0.0.79",
+    "path": "^0.12.7"
+  }
+}
