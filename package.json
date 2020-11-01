@@ -2,7 +2,7 @@
   "name": "coc-lwc",
   "version": "1.0.1",
   "description": "coc.nvim wrapper for Lightning Web Components framework LSP client",
-  "main": "out/src/index",
+  "main": "out/src/index.js",
   "scripts": {
     "compile": "tsc -b tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
