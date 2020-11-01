@@ -1,6 +1,6 @@
 {
   "name": "coc-lwc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "coc.nvim wrapper for Lightning Web Components framework LSP client",
   "main": "out/src/index.js",
   "scripts": {
