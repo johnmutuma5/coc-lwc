@@ -28,6 +28,7 @@ export default function setupLwcServerClient(context: ExtensionContext): Languag
   };
 
   const clientOptions: LanguageClientOptions = {
+    outputChannelName: 'LWC',
     documentSelector: [
       { language: 'html', scheme: 'file' },
       { language: 'javascript', scheme: 'file' }
