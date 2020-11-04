@@ -4,12 +4,46 @@ import {
   workspace,
   ExtensionContext,
   ServerOptions,
-  TransportKind
+  TransportKind,
+  Uri
 } from 'coc.nvim';
 import * as path from 'path';
+import { shared as lspCommon } from '@salesforce/lightning-lsp-common';
+import {WorkspaceType} from '@salesforce/lightning-lsp-common/lib/shared';
+import {Workspace} from 'coc.nvim/lib/workspace';
 
 export async function activate(context: ExtensionContext) {
+  try {
+    checkWorkspaceFolders(workspace);
+    checkLwcWorkspace();
+  } catch(error) {
+    console.error(`${error.name}: ${error.message}`);
+    return;
+  }
+
+  console.info('LWC workspace detected. Starting LWC Server now!!');
   startLwcServer(context);
+}
+
+function checkWorkspaceFolders(workspace: Workspace): void {
+  !(workspace.workspaceFolders?.length) &&
+    workspace.workspaceFolders.push(workspace.workspaceFolder && workspace.workspaceFolder);
+
+  if(!workspace.workspaceFolders?.length) {
+    throw new Error('No workspaceFolders found');
+  }
+}
+
+function checkLwcWorkspace(): void {
+  const workspaceRoots: string[] = [];
+  workspace.workspaceFolders.forEach(folder => {
+    workspaceRoots.push(Uri.parse(folder.uri).fsPath);
+  });
+  const workspaceType: WorkspaceType = lspCommon.detectWorkspaceType(workspaceRoots);
+  if(!lspCommon.isLWC(workspaceType)){
+    console.log('Could not detect an LWC project structure. Exiting ...');
+    throw new Error('No valid LWC workspace detected');
+  }
 }
 
 function startLwcServer(context: ExtensionContext) {
@@ -24,7 +58,6 @@ function startLwcServer(context: ExtensionContext) {
     )
   );
 
-  !(workspace.workspaceFolders?.length) && workspace.workspaceFolders.push(workspace.workspaceFolder);
 
   const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
   const serverOptions: ServerOptions = {
