@@ -1,6 +1,6 @@
 {
   "name": "coc-lwc",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "coc.nvim wrapper for Lightning Web Components framework LSP client",
   "main": "out/src/index.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
+    "@salesforce/lightning-lsp-common": "^3.0.11",
     "@salesforce/lwc-language-server": "^3.0.11",
     "coc": "^1.0.0",
     "coc.nvim": "0.0.79",
