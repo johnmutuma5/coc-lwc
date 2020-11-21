@@ -8,6 +8,7 @@
   - Code auto-completion
 
 - Registers IDE commands in Neo(Vim) enviroment
+    - SFDX.Create.LWC.Component - create a new sfdx lightning web component
     - Coming soon
 
 ## Installation
