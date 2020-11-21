@@ -1,8 +1,7 @@
 import {SfdxWorkspaceChecker} from "../salesforcedx-core/commands/utils";
 import {SfdxCommandlet} from "../salesforcedx-core";
-import {ParametersGatherer, CancelResponse, ContinueResponse} from "../salesforcedx-utils-vscode";
+import {ParametersGatherer, CancelResponse, ContinueResponse, Command, SfdxCommandBuilder} from "../salesforcedx-utils-vscode";
 import {SfdxCommandletExecutor} from "../salesforcedx-core/commands";
-import {Command, SfdxCommandBuilder} from "../salesforcedx-utils-vscode/src/cli/commandBuilder";
 import {workspace} from "coc.nvim";
 import {NEW_COMPONENT_INPUT_TITLE, NEW_COMPONENT_OUTPUT_DIR_TITLE, DEFAULT_LWC_DIR} from "../utils/constants";
 
