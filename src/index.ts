@@ -1,6 +1,7 @@
-import { workspace, ExtensionContext, LanguageClient } from 'coc.nvim';
+import { workspace, ExtensionContext, LanguageClient, commands } from 'coc.nvim';
 import setupLwcServerClient from './client';
 import {checkLwcWorkspace, checkWorkspaceFolders} from './utils';
+import createLwcComponent from './commands/createLwcComponent';
 
 export async function activate(context: ExtensionContext) {
   try {
@@ -16,5 +17,9 @@ export async function activate(context: ExtensionContext) {
   client.onReady().then(() => console.info('Success!! LWC client ready'));
   // Push the disposable to the context's subscriptions so that the
   // client can be deactivated on extension deactivation
-  context.subscriptions.push(client.start());
+  context.subscriptions.push(
+
+    commands.registerCommand('SFDX.Create.LWC.Component', createLwcComponent),
+    client.start()
+  );
 }
