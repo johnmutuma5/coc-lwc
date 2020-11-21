@@ -10,8 +10,8 @@ import * as path from 'path';
 import { workspace } from 'coc.nvim';
 import { SFDX_PROJECT_FILE } from '../constants';
 import {nls} from '../../messages';
-import {Predicate, PredicateResponse} from '../../salesforcedx-utils-vscode/src/predicates';
 import {hasRootWorkspace, getRootWorkspacePath} from '../utils';
+import {Predicate, PredicateResponse} from '../../salesforcedx-utils-vscode/predicates';
 
 export class IsSfdxProjectOpened implements Predicate<typeof workspace> {
   public apply(item: typeof workspace): PredicateResponse {
